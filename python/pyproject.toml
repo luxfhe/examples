@@ -1,0 +1,20 @@
+[project]
+name = "luxfhe-examples"
+version = "0.1.0"
+description = "Lux FHE Python examples"
+requires-python = ">=3.10"
+
+dependencies = [
+    "luxfhe>=0.1.0",
+]
+
+[project.optional-dependencies]
+ml = ["luxfhe[ml]"]
+agents = ["luxfhe[agents]"]
+all = ["luxfhe[all]"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "ruff>=0.1",
+]

@@ -1,0 +1,10 @@
+name: luxfhe-example
+version: 0.1.0
+dependencies:
+  - base >= 4.14
+  - luxfhe >= 0.1
+
+executables:
+  luxfhe-example:
+    main: Main.hs
+    source-dirs: src
