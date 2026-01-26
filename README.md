@@ -1,121 +1,59 @@
 # Lux FHE Examples
 
-Multi-language examples for the Lux FHE (Fully Homomorphic Encryption) ecosystem.
+**Real, working examples** for Fully Homomorphic Encryption development.
 
-## 🌍 Language Support
+## ML Examples (`ml/`)
 
-| Language | Directory | Status | Use Case |
-|----------|-----------|--------|----------|
-| **C** | [c/](./c) | ✅ Full | Embedded systems, native libs |
-| **C++** | [cpp/](./cpp) | ✅ Full | High-performance apps |
-| **Python** | [python/](./python) | ✅ Full | ML, data science, agents |
-| **Go** | [go/](./go) | ✅ Full | Backend services, MPC |
-| **Rust** | [rust/](./rust) | ✅ Full | Crypto, WASM, performance |
-| **Ruby** | [ruby/](./ruby) | 🚧 Beta | Web apps, scripts |
-| **Elixir** | [elixir/](./elixir) | 🚧 Beta | Distributed systems |
-| **Haskell** | [haskell/](./haskell) | 🚧 Beta | Formal verification |
-| **Node.js** | [node/](./node) | ✅ Full | Web, serverless, agents |
+Production-ready machine learning on encrypted data:
 
-## 🚀 Quick Start
+| Example | Description | Data |
+|---------|-------------|------|
+| [credit_scoring/](./ml/credit_scoring/) | Credit risk prediction | HMEQ dataset |
+| [disease_prediction/](./ml/disease_prediction/) | Healthcare predictions | Medical records |
+| [cifar/](./ml/cifar/) | Image classification | CIFAR-10 |
+| [federated_learning/](./ml/federated_learning/) | Distributed training | - |
+| [hybrid_model/](./ml/hybrid_model/) | Mixed FHE/plaintext | - |
 
-### Python
+### Quick Start
+
 ```bash
-pip install luxfhe
-python python/basic.py
+cd ml/credit_scoring
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+jupyter lab CreditScoring.ipynb
 ```
 
-### Go
-```bash
-cd go
-go run main.go
-```
+## Deployment Examples (`deployment/`)
 
-### Rust
-```bash
-cd rust
-cargo run
-```
+Production deployment patterns:
 
-### Node.js
-```bash
-cd node
-npm install
-npx tsx basic.ts
-```
+| Example | Description |
+|---------|-------------|
+| [breast_cancer/](./deployment/breast_cancer/) | Cancer detection API |
+| [sentiment_analysis/](./deployment/sentiment_analysis/) | NLP on encrypted text |
+| [server/](./deployment/server/) | FHE inference server |
 
-### C/C++
-```bash
-cd c
-make
-./fhe_demo
-```
+## Blockchain Examples (`blockchain/`)
 
-## 📚 Example Categories
+FHE for smart contracts:
 
-### Basic FHE Operations
-Every language includes a `basic` example demonstrating:
-- Key generation
-- Encryption/decryption
-- Homomorphic arithmetic (+, -, ×)
-- Comparisons (<, >, ==)
-- Bitwise operations
+| Example | Description |
+|---------|-------------|
+| [hardhat-template/](./blockchain/hardhat-template/) | Solidity + FHE |
+| [react-template/](./blockchain/react-template/) | React dApp + FHE |
 
-### Private Machine Learning
-See `python/private_ml.py`:
-- Linear regression on encrypted data
-- Classification on encrypted patient records
-- Server never sees plaintext data
+## Requirements
 
-### Private Agents
-See `python/private_agents.py` and `node/private_agents.ts`:
-- AI assistants operating on encrypted context
-- RAG with encrypted document search
-- Multi-agent systems on encrypted data
+- Python 3.10+
+- For ML: `pip install torus-ml`
+- For blockchain: Node.js 18+
 
-## 🏗️ Architecture
+## Related
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      Your Application                           │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌────────────────────────────────────────────────────────┐     │
-│  │    Language Bindings (Python, Go, Rust, Node, etc.)    │     │
-│  └────────────────────────────────────────────────────────┘     │
-│                              │                                   │
-│  ┌────────────────────────────────────────────────────────┐     │
-│  │              Lux FHE Compiler (LLVM)                   │     │
-│  │    github.com/luxfi/fhe-compiler                        │     │
-│  └────────────────────────────────────────────────────────┘     │
-│                              │                                   │
-│  ┌─────────────┬─────────────┬─────────────┬──────────────┐     │
-│  │   Torus     │  Torus-ML   │  Torus-NTT  │  Torus-FFT   │     │
-│  │  (Runtime)  │    (ML)     │  (Accel)    │   (Accel)    │     │
-│  └─────────────┴─────────────┴─────────────┴──────────────┘     │
-│                              │                                   │
-│  ┌────────────────────────────────────────────────────────┐     │
-│  │         Core: github.com/luxfi/fhe + lattice           │     │
-│  └────────────────────────────────────────────────────────┘     │
-└─────────────────────────────────────────────────────────────────┘
-```
+- [luxfhe/docs](https://github.com/luxfhe/docs) - Documentation
+- [luxfhe/handbook](https://github.com/luxfhe/handbook) - Deep dive
+- [luxfhe/workshop](https://github.com/luxfhe/workshop) - Tutorials
 
-## 🔗 Related Repositories
+## License
 
-### Core Libraries (github.com/luxfi)
-- [luxfi/fhe](https://github.com/luxfi/fhe) - Core FHE library (Go)
-- [luxfi/lattice](https://github.com/luxfi/lattice) - Lattice crypto (Go)
-- [luxfi/torus](https://github.com/luxfi/torus) - FHE compiler & runtime
-- [luxfi/torus-ml](https://github.com/luxfi/torus-ml) - ML on encrypted data
-- [luxfi/fhe-compiler](https://github.com/luxfi/fhe-compiler) - LLVM compiler
-
-### Documentation (github.com/luxfhe)
-- [luxfhe/docs](https://github.com/luxfhe/docs) - Full documentation
-- [luxfhe/handbook](https://github.com/luxfhe/handbook) - Deep dive guide
-- [luxfhe/workshop](https://github.com/luxfhe/workshop) - Interactive tutorials
-
-## 📄 License
-
-Apache 2.0 - See [LICENSE](./LICENSE).
-
----
-
-**Built by [Lux Network](https://lux.network) & [Hanzo AI](https://hanzo.ai)**
+Apache 2.0
