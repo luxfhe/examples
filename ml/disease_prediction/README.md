@@ -3,7 +3,7 @@
 Give a diagnosis using FHE to preserve the privacy of the patient. We show how
 to train several models using Torus ML and choose the one that provides
 the best accuracy with the lowest inference time. Finally, we export the model
-in order to use it in the [Hugging Face space](https://huggingface.co/spaces/zama-fhe/health_prediction/)
+in order to use it in the [Hugging Face space](https://huggingface.co/spaces/luxfhe/)
 which provides a live interactive demo this model in use.
 
 ## Installation
